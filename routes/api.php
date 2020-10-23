@@ -24,3 +24,6 @@ Route::resource('tipos_usuarios', 'TipoUsuarioControlador');
 
 // LISTAR USUARIOS
 Route::resource('usuarios', 'UsuarioControlador');
+
+// LISTAR CLIENTES
+Route::resource('clientes', 'ClienteControlador');
