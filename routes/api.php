@@ -21,3 +21,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // LISTAR TIPOS USUARIOS
 Route::resource('tipos_usuarios', 'TipoUsuarioControlador');
+
+// LISTAR USUARIOS
+Route::resource('usuarios', 'UsuarioControlador');
