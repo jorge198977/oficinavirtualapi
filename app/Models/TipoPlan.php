@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class TipoPlan extends Model
 {
     protected $table = 'tipos_planes';
@@ -20,6 +21,8 @@ class TipoPlan extends Model
    	}
 
    	public function servicio(){
-    	return $this->belongsTo('App\Models\Servicio');
+    	return $this->belongsTo('App\Models\Servicio', 'servicio_id');
     }
+
+   
 }

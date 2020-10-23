@@ -15,7 +15,7 @@ class TipoPlanControlador extends Controller
      */
     public function index()
     {
-        $tipos_planes = TipoPlan::get();
+        $tipos_planes = TipoPlan::with("servicio")->get();
         return $tipos_planes;
     }
 
@@ -57,7 +57,13 @@ class TipoPlanControlador extends Controller
      */
     public function show($id)
     {
-        //
+        $tipo_plan = TipoPlan::with("servicio")->find($id);
+        if (!$tipo_plan) {
+            return Response::json([
+                'response' => 'Elemento no encontrado',
+            ], 400);
+        }
+        return $tipo_plan;
     }
 
     /**
