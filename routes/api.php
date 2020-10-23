@@ -30,3 +30,6 @@ Route::resource('clientes', 'ClienteControlador');
 
 // LISTAR SERVICIOS
 Route::resource('servicios', 'ServicioControlador');
+
+// LISTAR TIPO PLAN
+Route::resource('tipos_planes', 'TipoPlanControlador');

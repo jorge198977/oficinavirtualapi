@@ -10,4 +10,9 @@ class Servicio extends Model
     protected $table = "servicios";
 
     protected $fillable = ['id', 'descripcion', 'valor', 'unica_vez'];
+
+
+    public function tipos_planes(){
+    	return $this->hasMany('App\Models\Tipo_plan');
+    }
 }
