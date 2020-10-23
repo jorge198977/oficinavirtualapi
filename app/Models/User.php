@@ -16,10 +16,12 @@ class User extends Authenticatable
      *
      * @var array
      */
+    protected $table = 'users';
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'usuario', 'password', 'rut', 'nombre', 
+        'administrador', 'boleta', 'vigente', 'boleta1', 
+        'boleta2', 'boleta3', 'root', 'externo', 'caja', 
+        'boleta4', 'email', 'tipo_usuario_id'
     ];
 
     /**
@@ -40,4 +42,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function tipo_usuario()
+    {
+        return $this->belongsTo('App\Models\TipoUsuario', 'tipo_usuario_id');
+    }
 }
