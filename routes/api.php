@@ -61,5 +61,8 @@ Route::resource('estados_conexiones', 'EstadoConexionControlador');
 // LISTAR ESTADOS EMPRESAS
 Route::resource('empresas', 'EmpresaControlador');
 
+// LISTAR ESTADOS OTS
+Route::resource('estados_ots', 'EstadoOtControlador');
+
 // LISTAR CONTRATOS
 Route::resource('contratos', 'ContratoControlador');
