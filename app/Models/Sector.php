@@ -14,4 +14,8 @@ class Sector extends Model
     public function comuna(){
     	return $this->belongsTo('App\Models\Comuna', 'comuna_id');
     }
+
+    public function poblaciones(){
+    	return $this->hasMany('App\Models\Poblacion');
+    }
 }

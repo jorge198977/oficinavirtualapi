@@ -42,3 +42,6 @@ Route::resource('comunas', 'ComunaControlador');
 
 // LISTAR TIPO SECTORES
 Route::resource('sectores', 'SectorControlador');
+
+// LISTAR TIPO POBLACIONES
+Route::resource('poblaciones', 'PoblacionControlador');
