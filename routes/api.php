@@ -58,5 +58,8 @@ Route::resource('cajeros_numeros', 'CajeroNumeroControlador');
 // LISTAR ESTADOS CONEXIONES
 Route::resource('estados_conexiones', 'EstadoConexionControlador');
 
+// LISTAR ESTADOS EMPRESAS
+Route::resource('empresas', 'EmpresaControlador');
+
 // LISTAR CONTRATOS
 Route::resource('contratos', 'ContratoControlador');
