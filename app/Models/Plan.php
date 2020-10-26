@@ -14,4 +14,8 @@ class Plan extends Model
     public function tipo_plan(){
     	return $this->belongsTo('App\Models\TipoPlan', 'tipo_plan_id');
     }
+
+    public function contratos(){
+    	return $this->hasMany('App\Models\Contrato');
+    }
 }

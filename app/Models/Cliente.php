@@ -10,9 +10,9 @@ class Cliente extends Model
     protected $table = "clientes";
     protected $fillable = ['id', 'rut','nombres','paterno','materno','nacionalidad','telefono1','telefono2','email', 'giro'];
 
-   //  public function contratos(){
-   //    return $this->hasMany('App\Contrato');
-   //  }
+    public function contratos(){
+      return $this->hasMany('App\Models\Contrato');
+    }
     
    // public static function getcliente($correlativo){
    //    foreach ($correlativo as $corre) {
