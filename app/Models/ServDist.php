@@ -10,4 +10,8 @@ class ServDist extends Model
     protected $table = "servdists";
 
     protected $fillable = ['servicio'];
+
+    public function tipos_ots(){
+    	return $this->hasMany('App\Models\TipoOt');
+    }
 }
