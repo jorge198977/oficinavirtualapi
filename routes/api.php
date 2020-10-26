@@ -46,5 +46,8 @@ Route::resource('sectores', 'SectorControlador');
 // LISTAR POBLACIONES
 Route::resource('poblaciones', 'PoblacionControlador');
 
+// LISTAR Calles
+Route::resource('calles', 'CalleControlador');
+
 // LISTAR CAJERONUMEROS
 Route::resource('cajeros_numeros', 'CajeroNumeroControlador');
