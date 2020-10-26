@@ -12,4 +12,9 @@ class Comuna extends Model
     protected $fillable = [
         'comuna'
    	];
+
+   	public function sectores()
+   	{
+       return $this->hasMany('App\Models\Sector');
+   	}
 }
