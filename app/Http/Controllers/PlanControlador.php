@@ -93,7 +93,20 @@ class PlanControlador extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $plan = Plan::find($id);
+        if(!$plan){
+            return Response::json([
+                'response' => 'Elemento no encontrado'
+            ], 400);
+        }
+        $plan->descripcion = $request->input('descripcion');
+        $plan->fecha_inicio = $request->input('fecha_inicio');
+        $plan->fecha_fin = $request->input('fecha_fin');
+        $plan->vigente = $request->input('vigente');
+        $plan->meses = $request->input('meses');
+        $plan->tipo_plan_id = $request->input('tipo_plan_id');
+        $plan->save();
+        return $plan;
     }
 
     /**
@@ -104,6 +117,13 @@ class PlanControlador extends Controller
      */
     public function destroy($id)
     {
-        //
+        $plan = Plan::find($id);
+        if(!$plan){
+            return Response::json([
+                'response' => 'Elemento no encontrado'
+            ], 400);
+        }
+        $plan->delete();
+        return "Plan eliminado";
     }
 }
