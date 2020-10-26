@@ -64,5 +64,8 @@ Route::resource('empresas', 'EmpresaControlador');
 // LISTAR ESTADOS OTS
 Route::resource('estados_ots', 'EstadoOtControlador');
 
+// LISTAR ESTADOS OTS
+Route::resource('serv_dists', 'ServDistControlador');
+
 // LISTAR CONTRATOS
 Route::resource('contratos', 'ContratoControlador');
