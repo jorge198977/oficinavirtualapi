@@ -37,11 +37,14 @@ Route::resource('tipos_planes', 'TipoPlanControlador');
 // LISTAR TIPO PLANES
 Route::resource('planes', 'PlanControlador');
 
-// LISTAR TIPO COMUNAS
+// LISTAR COMUNAS
 Route::resource('comunas', 'ComunaControlador');
 
-// LISTAR TIPO SECTORES
+// LISTAR SECTORES
 Route::resource('sectores', 'SectorControlador');
 
-// LISTAR TIPO POBLACIONES
+// LISTAR POBLACIONES
 Route::resource('poblaciones', 'PoblacionControlador');
+
+// LISTAR CAJERONUMEROS
+Route::resource('cajeros_numeros', 'CajeroNumeroControlador');
