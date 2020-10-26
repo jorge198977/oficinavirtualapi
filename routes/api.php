@@ -33,3 +33,6 @@ Route::resource('servicios', 'ServicioControlador');
 
 // LISTAR TIPO PLAN
 Route::resource('tipos_planes', 'TipoPlanControlador');
+
+// LISTAR TIPO PLANES
+Route::resource('planes', 'PlanControlador');

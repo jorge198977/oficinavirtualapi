@@ -7,5 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Plan extends Model
 {
-    use HasFactory;
+    protected $table = "planes";
+
+    protected $fillable = ['descripcion', 'fecha_inicio', 'fecha_fin', 'vigente', 'meses', 'tipo_plan_id'];
+
+    public function tipo_plan(){
+    	return $this->belongsTo('App\Models\TipoPlan', 'tipo_plan_id');
+    }
 }
