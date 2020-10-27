@@ -26,4 +26,8 @@ class Contrato extends Model
     public function direccion(){
     	return $this->belongsTo('App\Models\Direccion', 'direccion_id');
     }
+
+    public function ordenes_trabajos(){
+        return $this->hasMany('App\Models\OrdenTrabajo');
+    }
 }

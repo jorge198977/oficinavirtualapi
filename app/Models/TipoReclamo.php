@@ -12,4 +12,8 @@ class TipoReclamo extends Model
     protected $fillable = [
         'descripcion'
    	];
+
+   	public function ordenes_trabajos(){
+    	return $this->hasMany('App\Models\OrdenTrabajo');
+    }
 }

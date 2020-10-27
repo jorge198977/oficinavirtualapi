@@ -73,5 +73,8 @@ Route::resource('tipos_ots', 'TipoOtControlador');
 // LISTAR TIPOS RECLAMOS
 Route::resource('tipos_reclamos', 'TipoReclamoControlador');
 
+// LISTAR ORDENES DE TRABAJO
+Route::resource('ordenes_trabajos', 'OrdenTrabajoControlador');
+
 // LISTAR CONTRATOS
 Route::resource('contratos', 'ContratoControlador');

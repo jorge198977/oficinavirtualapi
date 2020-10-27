@@ -10,4 +10,8 @@ class EstadoOt extends Model
      protected $table = "estados_ots";
 
     protected $fillable = ['descripcion'];
+
+    public function ordenes_trabajos(){
+    	return $this->hasMany('App\Models\OrdenTrabajo');
+    }
 }

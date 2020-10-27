@@ -14,4 +14,8 @@ class TipoOt extends Model
     public function servs_dists(){
     	return $this->belongsTo('App\Models\ServDist', 'servdist_id');
     }
+
+    public function ordenes_trabajos(){
+    	return $this->hasMany('App\Models\OrdenTrabajo');
+    }
 }
