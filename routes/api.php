@@ -64,7 +64,10 @@ Route::resource('empresas', 'EmpresaControlador');
 // LISTAR ESTADOS OTS
 Route::resource('estados_ots', 'EstadoOtControlador');
 
-// LISTAR ESTADOS OTS
+// LISTAR ESTADOS TECNICOS
+Route::resource('estados_tecnicos', 'EstadoTecnicoControlador');
+
+// LISTAR ESTADOS SERVDIST
 Route::resource('serv_dists', 'ServDistControlador');
 
 // LISTAR TIPOS OTS
@@ -75,6 +78,15 @@ Route::resource('tipos_reclamos', 'TipoReclamoControlador');
 
 // LISTAR ORDENES DE TRABAJO
 Route::resource('ordenes_trabajos', 'OrdenTrabajoControlador');
+
+// LISTAR ORDENES DE TRABAJO DETALLE
+Route::resource('ordenes_trabajos_detalles', 'OrdenTrabajoDetalleControlador');
+
+// LISTAR ORDENES DE TRABAJO DIGITAL
+Route::resource('ordenes_trabajos_digitales', 'OrdenTrabajoDigitalControlador');
+
+// LISTAR ORDENES DE TRABAJO ASIGNA
+Route::resource('ordenes_trabajos_asignas', 'OrdenTrabajoAsignaControlador');
 
 // LISTAR CONTRATOS
 Route::resource('contratos', 'ContratoControlador');

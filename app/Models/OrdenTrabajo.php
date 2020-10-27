@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrdenTrabajo extends Model
 {
-     protected $table = "ordenes_trabajos";
+    protected $table = "ordenes_trabajos";
 
     protected $fillable = ['fecha_recepcion', 'nula', 'tipo_ot_id', 'contrato_id', 'tipo_reclamo_id', 'estado_ot_id', 'usuario_id'];
 
@@ -29,5 +29,13 @@ class OrdenTrabajo extends Model
 
     public function usuario(){
     	return $this->belongsTo('App\Models\User', 'usuario_id');
+    }
+
+    public function ordenes_trabajos_detalles(){
+    	return $this->hasMany('App\Models\OrdenTrabajoDetalle');
+    }
+
+    public function ordenes_trabajos_digitales(){
+        return $this->hasMany('App\Models\OrdenTrabajoDigital');
     }
 }

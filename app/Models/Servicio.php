@@ -15,4 +15,8 @@ class Servicio extends Model
     public function tipos_planes(){
     	return $this->hasMany('App\Models\Tipo_plan');
     }
+
+    public function ordenes_trabajos_detalles(){
+    	return $this->hasMany('App\Models\OrdenTrabajoDetalle');
+    }
 }
