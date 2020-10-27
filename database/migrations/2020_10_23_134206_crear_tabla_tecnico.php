@@ -17,6 +17,11 @@ class CrearTablaTecnico extends Migration
             $table->increments('id');
             $table->string('nombre', 165);
             $table->boolean('externo');
+            $table->string('usuario', 165);
+            $table->string('clave', 165);
+            $table->string('email', 165);
+            $table->string('rut', 165);
+            $table->integer('FTTH');
             $table->integer('estado_tecnico_id')->unsigned();
             $table->timestamps();
 

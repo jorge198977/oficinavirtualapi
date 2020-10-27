@@ -15,12 +15,16 @@ class CrearTablaOtsAsigna extends Migration
     {
         Schema::create('ots_asignas', function (Blueprint $table) {
             $table->increments('id');
+            $table->date('fecha');
+            $table->time('hora');
             $table->integer('orden_trabajo_id')->unsigned();
             $table->integer('usuario_id')->unsigned();
+            $table->integer('tecnico_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('orden_trabajo_id')->references('id')->on('ordenes_trabajos')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('usuario_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('tecnico_id')->references('id')->on('tecnicos')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
