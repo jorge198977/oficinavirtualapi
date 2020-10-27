@@ -70,5 +70,8 @@ Route::resource('serv_dists', 'ServDistControlador');
 // LISTAR TIPOS OTS
 Route::resource('tipos_ots', 'TipoOtControlador');
 
+// LISTAR TIPOS RECLAMOS
+Route::resource('tipos_reclamos', 'TipoReclamoControlador');
+
 // LISTAR CONTRATOS
 Route::resource('contratos', 'ContratoControlador');
