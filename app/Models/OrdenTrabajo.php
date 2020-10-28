@@ -38,4 +38,16 @@ class OrdenTrabajo extends Model
     public function ordenes_trabajos_digitales(){
         return $this->hasMany('App\Models\OrdenTrabajoDigital');
     }
+
+    public function contratos_terminos(){
+        return $this->hasMany('App\Models\ContratoTermino');
+    }
+
+    public function contratos_terminos_premiums(){
+        return $this->hasMany('App\Models\ContratoTerminoPremium');
+    }
+
+    public function cargas_adicionales(){
+        return $this->hasMany('App\Models\CargaAdicional');
+    }
 }

@@ -18,4 +18,8 @@ class ContratoAdicional extends Model
     public function servicio(){
     	return $this->belongsTo('App\Models\Servicio', 'servicio_id');
     }
+
+    public function crea_230s(){
+        return $this->hasMany('App\Models\Crea230');
+    }
 }

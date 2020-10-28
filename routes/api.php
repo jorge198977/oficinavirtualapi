@@ -102,3 +102,21 @@ Route::resource('serv_inets', 'ServInetControlador');
 
 // LISTAR CONTRATOS INETS
 Route::resource('contratos_inets', 'ContratoInetControlador');
+
+// LISTAR CONTRATOS TERMINO
+Route::resource('contratos_terminos', 'ContratoTerminoControlador');
+
+// LISTAR CONTRATOS TERMINO PREMIUM
+Route::resource('contratos_terminos_premiums', 'ContratoTerminoPremiumControlador');
+
+// LISTAR TIPOS CARGAS ADICIONALES
+Route::resource('tipos_cargas_adicionales', 'TipoCargaAdicionalControlador');
+
+// LISTAR CARGAS ADICIONALES
+Route::resource('cargas_adicionales', 'CargaAdicionalControlador');
+
+// LISTAR CREA230
+Route::resource('crea_230', 'Crea230Controlador');
+
+// LISTAR TIPOS DOCUMENTOS
+Route::resource('tipos_documentos', 'TipoDocumentoControlador');

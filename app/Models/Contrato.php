@@ -38,4 +38,20 @@ class Contrato extends Model
     public function contratos_inets(){
         return $this->hasMany('App\Models\ContratoInet');
     }
+
+    public function contratos_terminos(){
+        return $this->hasMany('App\Models\ContratoTermino');
+    }
+
+    public function contratos_terminos_premiums(){
+        return $this->hasMany('App\Models\ContratoTerminoPremium');
+    }
+
+    public function cargas_adicionales(){
+        return $this->hasMany('App\Models\CargaAdicional');
+    }
+
+    public function crea_230s(){
+        return $this->hasMany('App\Models\Crea230');
+    }
 }

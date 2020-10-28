@@ -51,4 +51,16 @@ class User extends Authenticatable
     public function ordenes_trabajos(){
         return $this->hasMany('App\Models\OrdenTrabajo');
     }
+
+    public function contratos_terminos(){
+        return $this->hasMany('App\Models\ContratoTermino');
+    }
+
+    public function contratos_terminos_premiums(){
+        return $this->hasMany('App\Models\ContratoTerminoPremium');
+    }
+
+    public function cargas_adicionales(){
+        return $this->hasMany('App\Models\CargaAdicional');
+    }
 }
