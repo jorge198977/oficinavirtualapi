@@ -88,5 +88,17 @@ Route::resource('ordenes_trabajos_digitales', 'OrdenTrabajoDigitalControlador');
 // LISTAR ORDENES DE TRABAJO ASIGNA
 Route::resource('ordenes_trabajos_asignas', 'OrdenTrabajoAsignaControlador');
 
+// LISTAR TECNICOS
+Route::resource('tecnicos', 'TecnicoControlador');
+
 // LISTAR CONTRATOS
 Route::resource('contratos', 'ContratoControlador');
+
+// LISTAR CONTRATOS ADICIONALES
+Route::resource('contratos_adicionales', 'ContratoAdicionalControlador');
+
+// LISTAR SERV INETS
+Route::resource('serv_inets', 'ServInetControlador');
+
+// LISTAR CONTRATOS INETS
+Route::resource('contratos_inets', 'ContratoInetControlador');

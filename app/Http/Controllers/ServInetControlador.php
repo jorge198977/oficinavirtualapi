@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Tecnico;
+use App\Models\ServInet;
 use Response;
 
-class TecnicoControlador extends Controller
+class ServInetControlador extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class TecnicoControlador extends Controller
      */
     public function index()
     {
-        $tecnicos = Tecnico::with("estado_tecnico")->get();
-        return $tecnicos;
+        $serv_inets = ServInet::get();
+        return $serv_inets;
     }
 
     /**
@@ -37,17 +37,22 @@ class TecnicoControlador extends Controller
      */
     public function store(Request $request)
     {
-        $tecnico = new Tecnico;
-        $tecnico->nombre = $request->input('nombre');
-        $tecnico->externo = $request->input('externo');
-        $tecnico->usuario = $request->input('usuario');
-        $tecnico->clave = bcrypt($request->input('clave'));
-        $tecnico->email = $request->input('email');
-        $tecnico->rut = $request->input('rut');
-        $tecnico->FTTH = $request->input('FTTH');
-        $tecnico->estado_tecnico_id = $request->input('estado_tecnico_id');
-        $tecnico->save();
-        return $tecnico;
+        $request->validate([
+            'descripcion' => 'required|unique:servinets',
+            'valor' => 'required'
+        ]);
+    
+        $serv_inet = new ServInet;
+        $serv_inet->id = $request->input('id');
+        $serv_inet->descripcion = $request->input('descripcion');
+        $serv_inet->valor = $request->input('valor');
+        $serv_inet->costo = $request->input('costo');
+        $serv_inet->descuento = $request->input('descuento');
+        $serv_inet->vigente = $request->input('vigente');
+        $serv_inet->bajada = $request->input('bajada');
+        $serv_inet->subida = $request->input('subida');
+        $serv_inet->save();
+        return $serv_inet;
     }
 
     /**
@@ -58,13 +63,13 @@ class TecnicoControlador extends Controller
      */
     public function show($id)
     {
-        $tecnico = Tecnico::with("estado_tecnico")->find($id);
-        if (!$tecnico) {
+        $serv_inet = ServInet::find($id);
+        if(!$serv_inet){
             return Response::json([
-                'response' => 'Elemento no encontrado',
+                'response' => 'Elemento no encontrado'
             ], 400);
         }
-        return $tecnico;
+        return $serv_inet;
     }
 
     /**
@@ -87,22 +92,23 @@ class TecnicoControlador extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tecnico = Tecnico::find($id);
-        if(!$tecnico){
+
+        $serv_inet = ServInet::find($id);
+        if(!$serv_inet){
             return Response::json([
                 'response' => 'Elemento no encontrado'
             ], 400);
         }
-        $tecnico->nombre = $request->input('nombre');
-        $tecnico->externo = $request->input('externo');
-        $tecnico->usuario = $request->input('usuario');
-        $tecnico->clave = bcrypt($request->input('clave'));
-        $tecnico->email = $request->input('email');
-        $tecnico->rut = $request->input('rut');
-        $tecnico->FTTH = $request->input('FTTH');
-        $tecnico->estado_tecnico_id = $request->input('estado_tecnico_id');
-        $tecnico->save();
-        return $tecnico;
+        $serv_inet->id = $request->input('id');
+        $serv_inet->descripcion = $request->input('descripcion');
+        $serv_inet->valor = $request->input('valor');
+        $serv_inet->costo = $request->input('costo');
+        $serv_inet->descuento = $request->input('descuento');
+        $serv_inet->vigente = $request->input('vigente');
+        $serv_inet->bajada = $request->input('bajada');
+        $serv_inet->subida = $request->input('subida');
+        $serv_inet->save();
+        return $serv_inet;
     }
 
     /**
@@ -113,13 +119,13 @@ class TecnicoControlador extends Controller
      */
     public function destroy($id)
     {
-        $tecnico = Tecnico::find($id);
-        if(!$tecnico){
+        $serv_inet = ServInet::find($id);
+        if(!$serv_inet){
             return Response::json([
                 'response' => 'Elemento no encontrado'
             ], 400);
         }
-        $tecnico->delete();
-        return "Tecnico eliminado";
+        $serv_inet->delete();
+        return "ServInet eliminado";
     }
 }

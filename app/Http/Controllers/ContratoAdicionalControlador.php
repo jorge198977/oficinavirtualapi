@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Tecnico;
+use App\Models\ContratoAdicional;
 use Response;
 
-class TecnicoControlador extends Controller
+class ContratoAdicionalControlador extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class TecnicoControlador extends Controller
      */
     public function index()
     {
-        $tecnicos = Tecnico::with("estado_tecnico")->get();
-        return $tecnicos;
+        $contatos_adicionales = ContratoAdicional::with("contrato.cliente", "servicio")->get();
+        return $contatos_adicionales;
     }
 
     /**
@@ -37,17 +37,12 @@ class TecnicoControlador extends Controller
      */
     public function store(Request $request)
     {
-        $tecnico = new Tecnico;
-        $tecnico->nombre = $request->input('nombre');
-        $tecnico->externo = $request->input('externo');
-        $tecnico->usuario = $request->input('usuario');
-        $tecnico->clave = bcrypt($request->input('clave'));
-        $tecnico->email = $request->input('email');
-        $tecnico->rut = $request->input('rut');
-        $tecnico->FTTH = $request->input('FTTH');
-        $tecnico->estado_tecnico_id = $request->input('estado_tecnico_id');
-        $tecnico->save();
-        return $tecnico;
+        $contrato_adicional = new ContratoAdicional;
+        $contrato_adicional->cantidad = $request->input('cantidad');
+        $contrato_adicional->contrato_id = $request->input('contrato_id');
+        $contrato_adicional->servicio_id = $request->input('servicio_id');
+        $contrato_adicional->save();
+        return $contrato_adicional;
     }
 
     /**
@@ -58,13 +53,13 @@ class TecnicoControlador extends Controller
      */
     public function show($id)
     {
-        $tecnico = Tecnico::with("estado_tecnico")->find($id);
-        if (!$tecnico) {
+        $contrato_adicional = ContratoAdicional::with("contrato.cliente", "servicio")->find($id);
+        if (!$contrato_adicional) {
             return Response::json([
                 'response' => 'Elemento no encontrado',
             ], 400);
         }
-        return $tecnico;
+        return $contrato_adicional;
     }
 
     /**
@@ -87,22 +82,17 @@ class TecnicoControlador extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tecnico = Tecnico::find($id);
-        if(!$tecnico){
+        $contrato_adicional = ContratoAdicional::find($id);
+        if(!$contrato_adicional){
             return Response::json([
                 'response' => 'Elemento no encontrado'
             ], 400);
         }
-        $tecnico->nombre = $request->input('nombre');
-        $tecnico->externo = $request->input('externo');
-        $tecnico->usuario = $request->input('usuario');
-        $tecnico->clave = bcrypt($request->input('clave'));
-        $tecnico->email = $request->input('email');
-        $tecnico->rut = $request->input('rut');
-        $tecnico->FTTH = $request->input('FTTH');
-        $tecnico->estado_tecnico_id = $request->input('estado_tecnico_id');
-        $tecnico->save();
-        return $tecnico;
+        $contrato_adicional->cantidad = $request->input('cantidad');
+        $contrato_adicional->contrato_id = $request->input('contrato_id');
+        $contrato_adicional->servicio_id = $request->input('servicio_id');
+        $contrato_adicional->save();
+        return $contrato_adicional;
     }
 
     /**
@@ -113,13 +103,13 @@ class TecnicoControlador extends Controller
      */
     public function destroy($id)
     {
-        $tecnico = Tecnico::find($id);
-        if(!$tecnico){
+        $contrato_adicional = ContratoAdicional::find($id);
+        if(!$contrato_adicional){
             return Response::json([
                 'response' => 'Elemento no encontrado'
             ], 400);
         }
-        $tecnico->delete();
-        return "Tecnico eliminado";
+        $contrato_adicional->delete();
+        return "Contrato adicional eliminado";
     }
 }

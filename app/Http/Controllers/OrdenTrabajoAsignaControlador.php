@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\OrdenTrabajoAsigna;
+use Response;
 
 class OrdenTrabajoAsignaControlador extends Controller
 {
@@ -13,7 +15,8 @@ class OrdenTrabajoAsignaControlador extends Controller
      */
     public function index()
     {
-        //
+        $ordenes_trabajos_asignas = OrdenTrabajoAsigna::with("orden_trabajo", "usuario", "tecnico")->get();
+        return $ordenes_trabajos_asignas;
     }
 
     /**
@@ -34,7 +37,14 @@ class OrdenTrabajoAsignaControlador extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $orden_trabajo_asigna = new OrdenTrabajoAsigna;
+        $orden_trabajo_asigna->fecha = $request->input('fecha');
+        $orden_trabajo_asigna->hora = $request->input('hora');
+        $orden_trabajo_asigna->orden_trabajo_id = $request->input('orden_trabajo_id');
+        $orden_trabajo_asigna->usuario_id = $request->input('usuario_id');
+        $orden_trabajo_asigna->tecnico_id = $request->input('tecnico_id');
+        $orden_trabajo_asigna->save();
+        return $orden_trabajo_asigna;
     }
 
     /**
@@ -45,7 +55,13 @@ class OrdenTrabajoAsignaControlador extends Controller
      */
     public function show($id)
     {
-        //
+        $orden_trabajo_asigna = OrdenTrabajoAsigna::with("orden_trabajo", "usuario", "tecnico")->find($id);
+        if (!$orden_trabajo_asigna) {
+            return Response::json([
+                'response' => 'Elemento no encontrado',
+            ], 400);
+        }
+        return $orden_trabajo_asigna;
     }
 
     /**
@@ -68,7 +84,20 @@ class OrdenTrabajoAsignaControlador extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $orden_trabajo_asigna = OrdenTrabajoAsigna::find($id);
+        if(!$orden_trabajo_asigna){
+            return Response::json([
+                'response' => 'Elemento no encontrado'
+            ], 400);
+        }
+        $orden_trabajo_asigna->fecha = $request->input('fecha');
+        $orden_trabajo_asigna->hora = $request->input('hora');
+        $orden_trabajo_asigna->orden_trabajo_id = $request->input('orden_trabajo_id');
+        $orden_trabajo_asigna->usuario_id = $request->input('usuario_id');
+        $orden_trabajo_asigna->tecnico_id = $request->input('tecnico_id');
+        $orden_trabajo_asigna->save();
+        return $orden_trabajo_asigna;
     }
 
     /**
@@ -78,7 +107,14 @@ class OrdenTrabajoAsignaControlador extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        //
+    {   
+        $orden_trabajo_asigna = OrdenTrabajoAsigna::find($id);
+        if(!$orden_trabajo_asigna){
+            return Response::json([
+                'response' => 'Elemento no encontrado'
+            ], 400);
+        }
+        $orden_trabajo_asigna->delete();
+        return "OT asgina eliminado";
     }
 }

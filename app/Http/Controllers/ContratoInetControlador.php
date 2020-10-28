@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Tecnico;
+use App\Models\ContratoInet;
 use Response;
 
-class TecnicoControlador extends Controller
+class ContratoInetControlador extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class TecnicoControlador extends Controller
      */
     public function index()
     {
-        $tecnicos = Tecnico::with("estado_tecnico")->get();
-        return $tecnicos;
+        $contatos_intes = ContratoInet::with("contrato.cliente", "servinet")->get();
+        return $contatos_intes;
     }
 
     /**
@@ -37,17 +37,11 @@ class TecnicoControlador extends Controller
      */
     public function store(Request $request)
     {
-        $tecnico = new Tecnico;
-        $tecnico->nombre = $request->input('nombre');
-        $tecnico->externo = $request->input('externo');
-        $tecnico->usuario = $request->input('usuario');
-        $tecnico->clave = bcrypt($request->input('clave'));
-        $tecnico->email = $request->input('email');
-        $tecnico->rut = $request->input('rut');
-        $tecnico->FTTH = $request->input('FTTH');
-        $tecnico->estado_tecnico_id = $request->input('estado_tecnico_id');
-        $tecnico->save();
-        return $tecnico;
+        $contrato_inet = new ContratoInet;
+        $contrato_inet->contrato_id = $request->input('contrato_id');
+        $contrato_inet->servinet_id = $request->input('servinet_id');
+        $contrato_inet->save();
+        return $contrato_inet;
     }
 
     /**
@@ -58,13 +52,13 @@ class TecnicoControlador extends Controller
      */
     public function show($id)
     {
-        $tecnico = Tecnico::with("estado_tecnico")->find($id);
-        if (!$tecnico) {
+        $contrato_inet = ContratoInet::with("contrato.cliente", "servinet")->find($id);
+        if (!$contrato_inet) {
             return Response::json([
                 'response' => 'Elemento no encontrado',
             ], 400);
         }
-        return $tecnico;
+        return $contrato_inet;
     }
 
     /**
@@ -87,22 +81,16 @@ class TecnicoControlador extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tecnico = Tecnico::find($id);
-        if(!$tecnico){
+        $contrato_inet = ContratoInet::find($id);
+        if(!$contrato_inet){
             return Response::json([
                 'response' => 'Elemento no encontrado'
             ], 400);
         }
-        $tecnico->nombre = $request->input('nombre');
-        $tecnico->externo = $request->input('externo');
-        $tecnico->usuario = $request->input('usuario');
-        $tecnico->clave = bcrypt($request->input('clave'));
-        $tecnico->email = $request->input('email');
-        $tecnico->rut = $request->input('rut');
-        $tecnico->FTTH = $request->input('FTTH');
-        $tecnico->estado_tecnico_id = $request->input('estado_tecnico_id');
-        $tecnico->save();
-        return $tecnico;
+        $contrato_inet->contrato_id = $request->input('contrato_id');
+        $contrato_inet->servinet_id = $request->input('servinet_id');
+        $contrato_inet->save();
+        return $contrato_inet;
     }
 
     /**
@@ -113,13 +101,13 @@ class TecnicoControlador extends Controller
      */
     public function destroy($id)
     {
-        $tecnico = Tecnico::find($id);
-        if(!$tecnico){
+        $contrato_inet = ContratoInet::find($id);
+        if(!$contrato_inet){
             return Response::json([
                 'response' => 'Elemento no encontrado'
             ], 400);
         }
-        $tecnico->delete();
-        return "Tecnico eliminado";
+        $contrato_inet->delete();
+        return "Contrato inet eliminado";
     }
 }

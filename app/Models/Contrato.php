@@ -30,4 +30,12 @@ class Contrato extends Model
     public function ordenes_trabajos(){
         return $this->hasMany('App\Models\OrdenTrabajo');
     }
+
+    public function contratos_adicionales(){
+        return $this->hasMany('App\Models\ContratoAdicional');
+    }
+
+    public function contratos_inets(){
+        return $this->hasMany('App\Models\ContratoInet');
+    }
 }

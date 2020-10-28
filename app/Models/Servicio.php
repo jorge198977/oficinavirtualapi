@@ -19,4 +19,10 @@ class Servicio extends Model
     public function ordenes_trabajos_detalles(){
     	return $this->hasMany('App\Models\OrdenTrabajoDetalle');
     }
+
+    public function contratos_adicionales(){
+        return $this->hasMany('App\Models\ContratoAdicional');
+    }
+
+    
 }
