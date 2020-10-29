@@ -15,6 +15,7 @@ class CrearTablaContratospremiums extends Migration
     {
         Schema::create('contratospremiums', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('valor');
             $table->integer('contrato_id')->unsigned();
             $table->string('servicio_id', 50);
             $table->timestamps();
