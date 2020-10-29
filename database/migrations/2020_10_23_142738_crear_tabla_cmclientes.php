@@ -19,7 +19,7 @@ class CrearTablaCmclientes extends Migration
             $table->integer('bpi');
             $table->string('email', 150);
             $table->string('clavewifi', 100);
-            $table->date('1erpago');
+            $table->date('primerpago');
             $table->integer('contrato_id')->unsigned();
             $table->string('cmmac_id', 12);
             $table->integer('orden_trabajo_id')->unsigned();
