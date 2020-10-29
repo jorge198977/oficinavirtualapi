@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CrearTablaVentas extends Migration
+class CrearTablaContratosTerminosPremiums extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,19 @@ class CrearTablaVentas extends Migration
      */
     public function up()
     {
-        Schema::create('ventas', function (Blueprint $table) {
+        Schema::create('contratosterpremiums', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('documento');
             $table->date('fecha');
-            $table->boolean('nula');
-            $table->time('hora');
-            $table->integer('movimiento_venta_id')->unsigned();
-            $table->integer('usuario_id')->unsigned();
+            $table->integer('mes');
+            $table->integer('anio');
             $table->integer('contrato_id')->unsigned();
+            $table->integer('usuario_id')->unsigned();
+            $table->integer('orden_trabajo_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('movimiento_venta_id')->references('id')->on('movimientos_ventas')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('usuario_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('contrato_id')->references('id')->on('contratos')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('usuario_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('orden_trabajo_id')->references('id')->on('ordenes_trabajos')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -37,6 +36,6 @@ class CrearTablaVentas extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ventas');
+        Schema::dropIfExists('contratosterpremiums');
     }
 }

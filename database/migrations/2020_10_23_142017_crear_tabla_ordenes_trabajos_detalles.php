@@ -16,6 +16,8 @@ class CrearTablaOrdenesTrabajosDetalles extends Migration
         Schema::create('ordenes_trabajos_detalles', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('cantidad');
+            $table->integer('linea');
+            $table->integer('valor');
             $table->integer('orden_trabajo_id')->unsigned();
             $table->string('servicio_id', 50);
             $table->timestamps();

@@ -39,6 +39,8 @@ class ContratoAdicionalControlador extends Controller
     {
         $contrato_adicional = new ContratoAdicional;
         $contrato_adicional->cantidad = $request->input('cantidad');
+        $contrato_adicional->valor = $request->input('valor');
+        $contrato_adicional->valor_real = $request->input('valor_real');
         $contrato_adicional->contrato_id = $request->input('contrato_id');
         $contrato_adicional->servicio_id = $request->input('servicio_id');
         $contrato_adicional->save();
@@ -89,6 +91,8 @@ class ContratoAdicionalControlador extends Controller
             ], 400);
         }
         $contrato_adicional->cantidad = $request->input('cantidad');
+        $contrato_adicional->valor = $request->input('valor');
+        $contrato_adicional->valor_real = $request->input('valor_real');
         $contrato_adicional->contrato_id = $request->input('contrato_id');
         $contrato_adicional->servicio_id = $request->input('servicio_id');
         $contrato_adicional->save();

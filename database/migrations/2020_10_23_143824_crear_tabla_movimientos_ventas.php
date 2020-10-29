@@ -14,7 +14,7 @@ class CrearTablaMovimientosVentas extends Migration
     public function up()
     {
         Schema::create('movimientos_ventas', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->increments('id');
             $table->string('descripcion', 100);
             $table->integer('operacion');
             $table->integer('signo');

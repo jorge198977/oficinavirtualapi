@@ -9,7 +9,7 @@ class OrdenTrabajoDetalle extends Model
 {
     protected $table = "ordenes_trabajos_detalles";
 
-    protected $fillable = ['cantidad', 'orden_trabajo_id', 'servicio_id'];
+    protected $fillable = ['cantidad', 'linea', 'valor', 'orden_trabajo_id', 'servicio_id'];
 
     public function orden_trabajo(){
     	return $this->belongsTo('App\Models\OrdenTrabajo', 'orden_trabajo_id');

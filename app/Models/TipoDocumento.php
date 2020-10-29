@@ -12,4 +12,8 @@ class TipoDocumento extends Model
     protected $fillable = [
         'tipo_documento'
    	];
+
+   	public function movimientos_ventas(){
+    	return $this->hasMany('App\Models\MovimientoVenta');
+    }
 }

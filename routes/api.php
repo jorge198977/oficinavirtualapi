@@ -120,3 +120,6 @@ Route::resource('crea_230', 'Crea230Controlador');
 
 // LISTAR TIPOS DOCUMENTOS
 Route::resource('tipos_documentos', 'TipoDocumentoControlador');
+
+// LISTAR MOVIMIENTOS VENTAS
+Route::resource('movimientos_ventas', 'MovimientoVentaControlador');

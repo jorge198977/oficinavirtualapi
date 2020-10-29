@@ -16,6 +16,8 @@ class CrearTablaContratosAdicionales extends Migration
         Schema::create('contratos_adicionales', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('cantidad');
+            $table->integer('valor');
+            $table->integer('valor_real');
             $table->integer('contrato_id')->unsigned();
             $table->string('servicio_id', 50);
             $table->timestamps();

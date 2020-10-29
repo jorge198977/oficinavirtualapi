@@ -9,7 +9,7 @@ class ContratoAdicional extends Model
 {
     protected $table = "contratos_adicionales";
 
-    protected $fillable = ['cantidad', 'contrato_id', 'servicio_id'];
+    protected $fillable = ['cantidad', 'valor', 'valor_real', 'contrato_id', 'servicio_id'];
 
     public function contrato(){
     	return $this->belongsTo('App\Models\Contrato', 'contrato_id');

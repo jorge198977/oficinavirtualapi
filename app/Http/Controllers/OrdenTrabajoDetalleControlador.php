@@ -39,6 +39,8 @@ class OrdenTrabajoDetalleControlador extends Controller
     {
         $orden_trabajo_detalle = new OrdenTrabajoDetalle;
         $orden_trabajo_detalle->cantidad = $request->input('cantidad');
+        $orden_trabajo_detalle->linea = $request->input('linea');
+        $orden_trabajo_detalle->valor = $request->input('valor');
         $orden_trabajo_detalle->orden_trabajo_id = $request->input('orden_trabajo_id');
         $orden_trabajo_detalle->servicio_id = $request->input('servicio_id');
         $orden_trabajo_detalle->save();
@@ -92,6 +94,8 @@ class OrdenTrabajoDetalleControlador extends Controller
             ], 400);
         }
         $orden_trabajo_detalle->cantidad = $request->input('cantidad');
+        $orden_trabajo_detalle->linea = $request->input('linea');
+        $orden_trabajo_detalle->valor = $request->input('valor');
         $orden_trabajo_detalle->orden_trabajo_id = $request->input('orden_trabajo_id');
         $orden_trabajo_detalle->servicio_id = $request->input('servicio_id');
         $orden_trabajo_detalle->save();
