@@ -63,4 +63,8 @@ class User extends Authenticatable
     public function cargas_adicionales(){
         return $this->hasMany('App\Models\CargaAdicional');
     }
+
+    public function ventas(){
+        return $this->hasMany('App\Models\Venta');
+    }
 }

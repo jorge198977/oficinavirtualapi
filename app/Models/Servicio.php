@@ -24,5 +24,9 @@ class Servicio extends Model
         return $this->hasMany('App\Models\ContratoAdicional');
     }
 
+    public function contratos_premiums(){
+        return $this->hasMany('App\Models\ContratoPremium');
+    }
+
     
 }

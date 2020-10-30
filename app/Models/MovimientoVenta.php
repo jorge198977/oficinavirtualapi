@@ -14,4 +14,8 @@ class MovimientoVenta extends Model
     public function tipo_documento(){
     	return $this->belongsTo('App\Models\TipoDocumento', 'tipo_documento_id');
     }
+
+    public function ventas(){
+        return $this->hasMany('App\Models\Venta');
+    }
 }

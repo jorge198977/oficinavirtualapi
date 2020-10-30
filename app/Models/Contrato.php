@@ -54,4 +54,20 @@ class Contrato extends Model
     public function crea_230s(){
         return $this->hasMany('App\Models\Crea230');
     }
+
+    public function ventas(){
+        return $this->hasMany('App\Models\Venta');
+    }
+
+    public function contratos_premiums(){
+        return $this->hasMany('App\Models\ContratoPremium');
+    }
+
+    public function cms_clientes(){
+        return $this->hasMany('App\Models\CmCliente');
+    }
+
+    public function onts_clientes(){
+        return $this->hasMany('App\Models\OntCliente');
+    }
 }

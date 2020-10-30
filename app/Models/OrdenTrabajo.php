@@ -50,4 +50,12 @@ class OrdenTrabajo extends Model
     public function cargas_adicionales(){
         return $this->hasMany('App\Models\CargaAdicional');
     }
+
+    public function cms_clientes(){
+        return $this->hasMany('App\Models\CmCliente');
+    }
+
+    public function onts_clientes(){
+        return $this->hasMany('App\Models\OntCliente');
+    }
 }

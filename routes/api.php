@@ -123,3 +123,39 @@ Route::resource('tipos_documentos', 'TipoDocumentoControlador');
 
 // LISTAR MOVIMIENTOS VENTAS
 Route::resource('movimientos_ventas', 'MovimientoVentaControlador');
+
+// LISTAR VENTAS
+Route::resource('ventas', 'VentaControlador');
+
+// LISTAR VENTAS
+Route::resource('ventas_detalles', 'VentaDetalleControlador');
+
+// LISTAR FORMAS PAGOS
+Route::resource('formas_pagos', 'FormaPagoControlador');
+
+// LISTAR VENTAS FORMAS PAGOS
+Route::resource('ventas_formas_pagos', 'VentaFormaPagoControlador');
+
+// LISTAR CONTRATOS PREMIUMS
+Route::resource('contratos_premiums', 'ContratoPremiumControlador');
+
+// LISTAR ESTADOS CMS
+Route::resource('estados_cms', 'EstadoCmControlador');
+
+// LISTAR MARMOCMS
+Route::resource('marmos_cms', 'MarmoCmControlador');
+
+// LISTAR CMMACS
+Route::resource('cm_macs', 'CmMacControlador');
+
+// LISTAR CMCLIENTES
+Route::resource('cm_clientes', 'CmClienteControlador');
+
+// LISTAR MARMOONT
+Route::resource('marmos_onts', 'MarmoOntControlador');
+
+// LISTAR ONTSERIES
+Route::resource('onts_series', 'OntSerieControlador');
+
+// LISTAR ONTCLIENTES
+Route::resource('onts_clientes', 'OntClienteControlador');

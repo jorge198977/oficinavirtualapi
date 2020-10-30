@@ -14,4 +14,8 @@ class ServInet extends Model
     public function contratos_inets(){
         return $this->hasMany('App\Models\ContratoInet');
     }
+
+    public function cm_macs(){
+        return $this->hasMany('App\Models\CmMac');
+    }
 }
