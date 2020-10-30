@@ -14,4 +14,8 @@ class VentaFormaPago extends Model
     public function forma_pago(){
     	return $this->belongsTo('App\Models\FormaPago', 'forma_pago_id');
     }
+
+    public function venta(){
+    	return $this->belongsTo('App\Models\Venta', 'venta_id');
+    }
 }
