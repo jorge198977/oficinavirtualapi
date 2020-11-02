@@ -14,8 +14,9 @@ class CrearTablaCuentasCorrientes extends Migration
     public function up()
     {
         Schema::create('cuentas_corrientes', function (Blueprint $table) {
+            $table->increments('id');
             $table->date('fecha_documento');
-            $table->integer('fecha_vencimiento');
+            $table->date('fecha_vencimiento');
             $table->integer('valor');
             $table->integer('signo');
             $table->integer('movimiento_ctacte_id');
