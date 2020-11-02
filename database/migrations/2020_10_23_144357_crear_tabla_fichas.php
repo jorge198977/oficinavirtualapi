@@ -17,6 +17,7 @@ class CrearTablaFichas extends Migration
             $table->increments('id');
             $table->integer('codigo');
             $table->integer('num');
+            $table->integer('ficha');
             $table->integer('orden_trabajo_id')->unsigned();
             $table->timestamps();
 
