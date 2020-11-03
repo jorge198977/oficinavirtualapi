@@ -67,4 +67,12 @@ class User extends Authenticatable
     public function ventas(){
         return $this->hasMany('App\Models\Venta');
     }
+
+    public function fichas_tecnicos(){
+        return $this->hasMany('App\Models\FichaTecnico');
+    }
+
+    public function notas_creditos(){
+        return $this->hasMany('App\Models\NotaCredito');
+    }
 }

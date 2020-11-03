@@ -70,4 +70,8 @@ class Contrato extends Model
     public function onts_clientes(){
         return $this->hasMany('App\Models\OntCliente');
     }
+
+    public function cuentas_corrientes(){
+        return $this->hasMany('App\Models\CuentaCorriente');
+    }
 }

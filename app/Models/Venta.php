@@ -26,4 +26,16 @@ class Venta extends Model
     public function ventas_detalles(){
         return $this->hasMany('App\Models\VentaDetalle');
     }
+
+    public function correinternos(){
+        return $this->hasMany('App\Models\Correinterno');
+    }
+
+    public function cuentas_corrientes(){
+        return $this->hasMany('App\Models\CuentaCorriente');
+    }
+
+    public function notas_creditos(){
+        return $this->hasMany('App\Models\NotaCredito');
+    }
 }

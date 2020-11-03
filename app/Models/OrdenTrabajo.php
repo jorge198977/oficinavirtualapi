@@ -58,4 +58,8 @@ class OrdenTrabajo extends Model
     public function onts_clientes(){
         return $this->hasMany('App\Models\OntCliente');
     }
+
+    public function ordenes_trabajos(){
+        return $this->hasMany('App\Models\OrdenTrabajo');
+    }
 }

@@ -159,3 +159,21 @@ Route::resource('onts_series', 'OntSerieControlador');
 
 // LISTAR ONTCLIENTES
 Route::resource('onts_clientes', 'OntClienteControlador');
+
+// LISTAR CORREINTERNOS
+Route::resource('correinternos', 'CorreinternoControlador');
+
+// LISTAR MOVIMIENTOS CTACTE
+Route::resource('movimientos_ctactes', 'MovimientoCtacteControlador');
+
+// LISTAR CTACTES
+Route::resource('cuentas_corrientes', 'CuentaCorrienteControlador');
+
+// LISTAR FICHAS
+Route::resource('fichas', 'FichaControlador');
+
+// LISTAR FICHAS TECNICOS
+Route::resource('fichas_tecnicos', 'FichaTecnicoControlador');
+
+// LISTAR NOTAS CREDITOS
+Route::resource('notas_creditos', 'NotaCreditoControlador');

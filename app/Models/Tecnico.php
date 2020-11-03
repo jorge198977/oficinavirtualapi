@@ -14,4 +14,8 @@ class Tecnico extends Model
     public function estado_tecnico(){
     	return $this->belongsTo('App\Models\EstadoTecnico', 'estado_tecnico_id');
     }
+
+    public function fichas_tecnicos(){
+        return $this->hasMany('App\Models\FichaTecnico');
+    }
 }
